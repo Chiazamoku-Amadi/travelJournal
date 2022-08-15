@@ -1,23 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Header from "../src/Components/Header/Header";
+import Journals from "../src/Components/Journals/Journals";
+import journalData from "./data";
 
 function App() {
+  const journals = journalData.map((journal) => {
+    return <Journals key={journal.id} {...journal} />;
+  });
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      {journals}
     </div>
   );
 }
